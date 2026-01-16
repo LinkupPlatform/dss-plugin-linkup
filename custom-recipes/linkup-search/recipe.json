@@ -1,0 +1,61 @@
+{
+    "meta": {
+        "label": "Linkup Search",
+        "description": "Recipe to perform a search using the Linkup search engine",
+        "icon": "icon-puzzle-piece"
+    },
+    "kind": "PYTHON",
+    "selectableFromDataset": "input_dataset",
+    "inputRoles": [
+        {
+            "name": "input_dataset",
+            "label": "Input Dataset",
+            "description": "Dataset with a text column to translate",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+    "outputRoles": [
+        {
+            "name": "output_dataset",
+            "label": "Output dataset",
+            "description": "Dataset with text translated to another language",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+    "params": [
+        {
+            "name": "depth",
+            "label": "Depth",
+            "type": "SELECT",
+            "selectChoices": [
+                {
+                    "value": "standard",
+                    "label": "standard"
+                },
+                {
+                    "value": "deep",
+                    "label": "deep"
+                }
+            ],
+            "defaultValue": "standard",
+            "mandatory": true
+        },
+        {
+            "name": "api_key",
+            "label": "Linkup API key (optional, otherwise use LINKUP_API_KEY env var)",
+            "type": "STRING",
+            "defaultValue": ""
+        },
+        {
+            "name": "query_column",
+            "label": "Column containing the query text",
+            "type": "STRING",
+            "defaultValue": "query"
+        }
+    ],
+    "resourceKeys": []
+}

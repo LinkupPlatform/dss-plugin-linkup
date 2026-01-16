@@ -1,0 +1,37 @@
+{
+    "meta": {
+        "label": "API configuration",
+        "description": "",
+        "icon": "icon-puzzle-piece"
+    },
+    "defaultDefinableInline": true,
+    "defaultDefinableAtProjectLevel": true,
+    "pluginParams": [],
+    "params": [
+        {
+            "name": "depth",
+            "label": "Depth",
+            "type": "SELECT",
+            "description": "Search depth level for Linkup search engine",
+            "selectChoices": [
+                {
+                    "value": "standard",
+                    "label": "standard"
+                },
+                {
+                    "value": "deep",
+                    "label": "deep"
+                }
+            ],
+            "defaultValue": "standard",
+            "mandatory": true
+        },
+        {
+            "name": "api_key",
+            "label": "Linkup API key (optional, otherwise use LINKUP_API_KEY env var)",
+            "type": "STRING",
+            "defaultValue": "",
+            "mandatory": false
+        }
+    ]
+}

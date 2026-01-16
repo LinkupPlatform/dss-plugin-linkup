@@ -1,13 +1,4 @@
 # Changelog
 
-## Version X.Y.Z - Type of release (*) - YYYY-MM-DD
-- Changes 1 ...
-- Changes 2 ... 
-- ...
-
-(*) Possible types of releases
-
-- Initial release
-- Bugfix release
-- Feature release
-- .... 
+## Version 1.0.0 - Initial release - 2026-01-15
+- Linkup search recipe to query linkup API and retrieve results.

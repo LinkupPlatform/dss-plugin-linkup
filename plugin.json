@@ -1,16 +1,18 @@
 {
-    "id": "your-plugin-id",
-    "version": "0.1.0",
+    "id": "dss-plugin-linkup",
+    "version": "1.0.0",
     "meta": {
-        "label": "Plugin template - Replace by your plugin label",
-        "category": "Your category (optional)",
-        "description": "Your description (keep it short and simple)",
-        "author": "Organization (firstName LASTNAME)",
+        "label": "LinkUp Plugin",
+        "category": "Data Integration",
+        "description": "Plugin to integrate Linkup search engine capabilities into Dataiku DSS.",
+        "author": "Linkup",
         "icon": "icon-font-awesome-3.2.1",
         "licenseInfo": "Apache Software License",
-        "url": "https://www.dataiku.com/product/plugins/your-plugin-id/",
+        "url": "https://www.dataiku.com/product/plugins/dss-plugin-linkup/",
         "tags": [
-            "myTag"
+            "search",
+            "integration",
+            "linkup"
         ],
         "supportLevel": "NOT_SUPPORTED"
     }
