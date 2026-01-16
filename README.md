@@ -1,6 +1,6 @@
 # Linkup Plugin
 
-![Build status](https://github.com/linkup/dss-plugin-linkup/actions/workflows/auto-make.yml/badge.svg) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/linkup/dss-plugin-linkup?logo=github) ![Support level](https://img.shields.io/badge/support-Unsupported-orange)
+![Build status](https://github.com/LinkupPlatform/dss-plugin-linkup/actions/workflows/auto-make.yml/badge.svg) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/LinkupPlatform/dss-plugin-linkup?logo=github) ![Support level](https://img.shields.io/badge/support-Unsupported-orange)
 
 This Dataiku DSS plugin provides a recipe to use the search engine capabilities of Linkup on a text column.
 
