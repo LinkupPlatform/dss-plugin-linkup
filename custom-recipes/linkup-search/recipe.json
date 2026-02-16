@@ -59,12 +59,12 @@
             "mandatory": true
         },
         {
-            "name": "output_format",
-            "label": "Output format",
+            "name": "output_type",
+            "label": "Output type",
             "type": "SELECT",
             "selectChoices": [
                 {
-                    "value": "text",
+                    "value": "sourcedAnswer",
                     "label": "Text"
                 },
                 {
@@ -76,9 +76,9 @@
         },
         {
             "name": "structured_output_format",
-            "label": "Structured output format (JSON)",
+            "label": "Structured output format (JSON schema)",
             "type": "TEXTAREA",
-            "visibilityCondition": "model.output_format == 'structured'"
+            "visibilityCondition": "model.output_type == 'structured'"
         }
     ],
     "resourceKeys": []

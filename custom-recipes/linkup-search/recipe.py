@@ -16,22 +16,32 @@ def get_client(api_key: Optional[str]) -> LinkupClient:
 
 
 def call_client_for_query(
-    client: LinkupClient, query: str, depth: str, structured_output_schema: str = ""
+    client: LinkupClient,
+    query: str,
+    depth: str,
+    output_type: str,
+    structured_output_schema: str,
 ):
     try:
-        response = client.search(
-            query=query,
-            depth=depth,
-            output_type=(
-                "sourcedAnswer" if structured_output_schema == "" else "structured"
-            ),
-            structured_output_schema=structured_output_schema,
-        )
+        if output_type == "structured":
+            response = client.search(
+                query=query,
+                depth=depth,
+                output_type="structured",
+                structured_output_schema=structured_output_schema,
+            )
 
-        return response.answer if structured_output_schema == "" else response
+            return response
+        else:
+            response = client.search(
+                query=query,
+                depth=depth,
+                output_type="sourcedAnswer",
+            )
+
+            return response.answer
     except Exception:
         return None
-    return None
 
 
 # ==============================================================================
@@ -44,6 +54,7 @@ if api_key is None or api_key == {}:
 
 depth = get_recipe_config().get("depth", "standard")
 query_column = get_recipe_config().get("query_column", "query")
+output_type = get_recipe_config().get("output_type", "sourcedAnswer")
 structured_output_format = get_recipe_config().get("structured_output_format", "")
 
 input_dataset = dataiku.Dataset(get_input_names_for_role("input_dataset")[0])
@@ -64,7 +75,9 @@ client = get_client(api_key)
 answers = []
 for q in df[query_column].fillna(""):
     try:
-        result = call_client_for_query(client, str(q), depth, structured_output_format)
+        result = call_client_for_query(
+            client, str(q), depth, output_type, structured_output_format
+        )
         answers.append("" if result is None else str(result))
     except Exception:
         answers.append("")
