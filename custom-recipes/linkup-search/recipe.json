@@ -46,9 +46,10 @@
         },
         {
             "name": "api_key",
-            "label": "Linkup API key (optional, otherwise use LINKUP_API_KEY env var)",
+            "label": "Linkup API key",
             "type": "STRING",
-            "defaultValue": ""
+            "defaultValue": "",
+            "mandatory": true
         },
         {
             "name": "query_column",
