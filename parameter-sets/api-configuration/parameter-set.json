@@ -36,8 +36,31 @@
         {
             "name": "query_column",
             "label": "Column containing the query text",
-            "type": "STRING",
-            "defaultValue": "query"
+            "type": "COLUMN",
+            "defaultValue": "query",
+            "mandatory": true
+        },
+        {
+            "name": "output_format",
+            "label": "Output format",
+            "type": "SELECT",
+            "selectChoices": [
+                {
+                    "value": "text",
+                    "label": "Text"
+                },
+                {
+                    "value": "structured",
+                    "label": "Structured (JSON)"
+                }
+            ],
+            "mandatory": true
+        },
+        {
+            "name": "structured_output_format",
+            "label": "Structured output format (JSON)",
+            "type": "TEXTAREA",
+            "visibilityCondition": "model.output_format == 'structured'"
         }
     ]
 }
