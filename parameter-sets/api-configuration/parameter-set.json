@@ -1,0 +1,66 @@
+{
+    "meta": {
+        "label": "API configuration",
+        "description": "",
+        "icon": "icon-puzzle-piece"
+    },
+    "defaultDefinableInline": true,
+    "defaultDefinableAtProjectLevel": true,
+    "pluginParams": [],
+    "params": [
+        {
+            "name": "depth",
+            "label": "Depth",
+            "type": "SELECT",
+            "description": "Search depth level for Linkup search engine",
+            "selectChoices": [
+                {
+                    "value": "standard",
+                    "label": "standard"
+                },
+                {
+                    "value": "deep",
+                    "label": "deep"
+                }
+            ],
+            "defaultValue": "standard",
+            "mandatory": true
+        },
+        {
+            "name": "api_key",
+            "label": "Linkup API key",
+            "type": "STRING",
+            "defaultValue": "",
+            "mandatory": true
+        },
+        {
+            "name": "query_column",
+            "label": "Column containing the query text",
+            "type": "COLUMN",
+            "defaultValue": "query",
+            "mandatory": true
+        },
+        {
+            "name": "output_type",
+            "label": "Output type",
+            "type": "SELECT",
+            "selectChoices": [
+                {
+                    "value": "sourcedAnswer",
+                    "label": "Text"
+                },
+                {
+                    "value": "structured",
+                    "label": "Structured (JSON)"
+                }
+            ],
+            "mandatory": true
+        },
+        {
+            "name": "structured_output_format",
+            "label": "Structured output format (JSON schema)",
+            "type": "TEXTAREA",
+            "visibilityCondition": "model.output_type == 'structured'"
+        }
+    ]
+}
