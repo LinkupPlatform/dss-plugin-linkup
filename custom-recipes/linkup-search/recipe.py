@@ -23,23 +23,14 @@ def call_client_for_query(
     structured_output_schema: str,
 ):
     try:
-        if output_type == "structured":
-            response = client.search(
-                query=query,
-                depth=depth,
-                output_type="structured",
-                structured_output_schema=structured_output_schema,
-            )
+        response = client.search(
+            query=query,
+            depth=depth,
+            output_type=output_type,
+            structured_output_schema=structured_output_schema,
+        )
 
-            return response
-        else:
-            response = client.search(
-                query=query,
-                depth=depth,
-                output_type="sourcedAnswer",
-            )
-
-            return response.answer
+        return response if output_type == "structured" else response.answer
     except Exception:
         return None
 
@@ -55,7 +46,11 @@ if api_key is None or api_key == {}:
 depth = get_recipe_config().get("depth", "standard")
 query_column = get_recipe_config().get("query_column", "query")
 output_type = get_recipe_config().get("output_type", "sourcedAnswer")
-structured_output_format = get_recipe_config().get("structured_output_format", "")
+structured_output_format = (
+    ""
+    if output_type == "sourcedAnswer"
+    else get_recipe_config().get("structured_output_format", "")
+)
 
 input_dataset = dataiku.Dataset(get_input_names_for_role("input_dataset")[0])
 output_dataset = dataiku.Dataset(get_output_names_for_role("output_dataset")[0])
